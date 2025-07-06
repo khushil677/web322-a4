@@ -1,0 +1,25 @@
+/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+.ml-auto {
+  margin-left: auto;
+}
+.table {
+  display: table;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-full {
+  width: 100%;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.italic {
+  font-style: italic;
+}

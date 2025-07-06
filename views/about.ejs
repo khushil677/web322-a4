@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – My Projects</title>
+
+  <!-- 1) Tailwind utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 2) DaisyUI components -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="min-h-screen flex flex-col">
+  <%- include('partials/navbar', { page: '/about' }) %>
+  <main class="flex-grow">
+    <section class="hero min-h-full bg-base-200">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+          <p class="py-6">
+            This application is built with Express, EJS, and styled
+            using Tailwind + DaisyUI via CDN.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

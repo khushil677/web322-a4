@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= project.title %> – My Projects</title>
+
+  <!-- 1) Tailwind utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 2) DaisyUI components -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="min-h-screen flex flex-col">
+  <%- include('partials/navbar', { page: '' }) %>
+  <main class="flex-grow p-6 max-w-3xl mx-auto">
+    <h1 class="text-4xl font-bold mb-2"><%= project.title %></h1>
+    <p class="mb-4">Detailed information about this project:</p>
+    <img
+      src="<%= project.feature_img_url %>"
+      alt="Project image"
+      class="w-full rounded shadow mb-4"
+    >
+    <p class="mb-2"><%= project.intro_short %></p>
+    <p class="mb-4 font-semibold">Impact: <%= project.impact %></p>
+    <a
+      href="<%= project.original_source_url %>"
+      class="btn mb-4"
+      target="_blank"
+    >More Info</a>
+
+    <div class="bg-base-300 p-4 rounded mb-4">
+      <blockquote id="quote" class="italic"></blockquote>
+      <p id="author" class="text-right mt-2 font-semibold"></p>
+    </div>
+
+    <a href="#" onclick="history.back();return false;" class="btn">Back</a>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("https://dummyjson.com/quotes/random")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("quote").innerText = `"${data.quote}"`;
+          document.getElementById("author").innerText = `- ${data.author}`;
+        });
+    });
+  </script>
+</body>
+</html>

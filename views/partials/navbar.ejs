@@ -1,0 +1,23 @@
+<nav class="navbar bg-base-100 px-4 py-2 shadow">
+  <div class="flex-1">
+    <a href="/solutions/projects" class="btn btn-ghost text-xl normal-case">
+      My Projects
+    </a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal p-0">
+      <li>
+        <a href="/solutions/projects"
+           class="<%= page === '/solutions/projects' ? 'active' : '' %>">
+          View Projects
+        </a>
+      </li>
+      <li>
+        <a href="/about"
+           class="<%= page === '/about' ? 'active' : '' %>">
+          About
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

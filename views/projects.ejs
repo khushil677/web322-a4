@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – My Projects</title>
+
+  <!-- 1) Tailwind utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 2) DaisyUI components -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="min-h-screen flex flex-col">
+  <%- include('partials/navbar', { page: '/solutions/projects' }) %>
+  <main class="flex-grow p-6">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold mb-4">Projects</h1>
+      <div class="mb-6 space-x-2">
+        <a href="/solutions/projects?sector=Industry" class="btn btn-outline">
+          Industry
+        </a>
+        <a href="/solutions/projects?sector=Transportation" class="btn btn-outline">
+          Transportation
+        </a>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Sector</th>
+              <th>Summary</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% projects.forEach(p => { %>
+              <tr>
+                <td><%= p.title %></td>
+                <td>
+                  <a
+                    href="/solutions/projects?sector=<%= p.sector %>"
+                    class="btn btn-sm"
+                  ><%= p.sector %></a>
+                </td>
+                <td><%= p.summary_short %></td>
+                <td>
+                  <a
+                    href="/solutions/projects/<%= p.id %>"
+                    class="btn btn-sm btn-primary"
+                  >Details</a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
