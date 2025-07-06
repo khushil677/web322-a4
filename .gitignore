@@ -1,0 +1,9 @@
+# Node dependencies
+node_modules/
+
+# Local build output
+public/css/
+
+# Tailwind binary
+tailwindcss.exe
+tailwindcss.exe.exe
