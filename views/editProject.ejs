@@ -1,0 +1,84 @@
+<%- include('partials/navbar', { page: '' }) %>
+
+<h1>Edit Project: <%= project.title %></h1>
+
+<form action="/solutions/editProject" method="POST" class="space-y-4">
+  <input type="hidden" name="id" value="<%= project.id %>" />
+
+  <div>
+    <label for="title">Title</label><br>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      value="<%= project.title %>"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="feature_img_url">Feature Image URL</label><br>
+    <input
+      type="url"
+      id="feature_img_url"
+      name="feature_img_url"
+      value="<%= project.feature_img_url %>"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="sector_id">Sector</label><br>
+    <select id="sector_id" name="sector_id" required>
+      <% sectors.forEach(s => { %>
+        <option
+          value="<%= s.id %>"
+          <%= project.sector_id === s.id ? 'selected' : '' %>
+        >
+          <%= s.sector_name %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div>
+    <label for="intro_short">Intro (short)</label><br>
+    <textarea
+      id="intro_short"
+      name="intro_short"
+      required
+    ><%= project.intro_short %></textarea>
+  </div>
+
+  <div>
+    <label for="summary_short">Summary (short)</label><br>
+    <textarea
+      id="summary_short"
+      name="summary_short"
+      required
+    ><%= project.summary_short %></textarea>
+  </div>
+
+  <div>
+    <label for="impact">Impact</label><br>
+    <textarea
+      id="impact"
+      name="impact"
+      required
+    ><%= project.impact %></textarea>
+  </div>
+
+  <div>
+    <label for="original_source_url">Original Source URL</label><br>
+    <input
+      type="url"
+      id="original_source_url"
+      name="original_source_url"
+      value="<%= project.original_source_url %>"
+      required
+    />
+  </div>
+
+  <button type="submit">Update Project</button>
+  <a href="/solutions/deleteProject/<%= project.id %>">Delete Project</a>
+</form>

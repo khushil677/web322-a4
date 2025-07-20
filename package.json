@@ -8,10 +8,26 @@
   },
   "dependencies": {
     "daisyui": "^5.0.43",
+    "dotenv": "^17.2.0",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khushil677/web322-a4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khushil677/web322-a4/issues"
+  },
+  "homepage": "https://github.com/Khushil677/web322-a4#readme",
+  "description": ""
 }

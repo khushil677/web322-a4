@@ -1,0 +1,47 @@
+<%- include('partials/navbar', { page: '/solutions/addProject' }) %>
+
+<h1>Add Project</h1>
+
+<form action="/solutions/addProject" method="POST">
+  <div>
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title" required>
+  </div>
+
+  <div>
+    <label for="feature_img_url">Feature Image URL</label><br>
+    <input type="url" id="feature_img_url" name="feature_img_url" required>
+  </div>
+
+  <div>
+    <label for="sector_id">Sector</label><br>
+    <select id="sector_id" name="sector_id" required>
+      <% sectors.forEach(s => { %>
+        <option value="<%= s.id %>"><%= s.sector_name %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div>
+    <label for="intro_short">Intro (short)</label><br>
+    <textarea id="intro_short" name="intro_short" required></textarea>
+  </div>
+
+  <div>
+    <label for="summary_short">Summary (short)</label><br>
+    <textarea id="summary_short" name="summary_short" required></textarea>
+  </div>
+
+  <div>
+    <label for="impact">Impact</label><br>
+    <textarea id="impact" name="impact" required></textarea>
+  </div>
+
+  <div>
+    <label for="original_source_url">Original Source URL</label><br>
+    <input type="url" id="original_source_url" name="original_source_url" required>
+  </div>
+
+  <button type="submit">Add Project</button>
+</form>
+
