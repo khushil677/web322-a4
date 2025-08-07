@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui/dist/full.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col">
+  <%- include('partials/navbar', { page: '/register' }) %>
+  <main class="flex-grow p-6 max-w-md mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Register</h1>
+    <% if (!successMessage) { %>
+      <form action="/register" method="POST" class="space-y-4">
+        <div>
+          <input type="text" name="userName" placeholder="User Name" value="<%= userName %>" required class="input input-bordered w-full"/>
+        </div>
+        <div>
+          <input type="password" name="password" placeholder="Password" required class="input input-bordered w-full"/>
+        </div>
+        <div>
+          <input type="password" name="password2" placeholder="Confirm Password" required class="input input-bordered w-full"/>
+        </div>
+        <div>
+          <input type="email" name="email" placeholder="Email Address" required class="input input-bordered w-full"/>
+        </div>
+        <button type="submit" class="btn btn-primary w-full">Register</button>
+      </form>
+      <% if (errorMessage) { %>
+        <div class="alert alert-error mt-4"><%= errorMessage %></div>
+      <% } %>
+    <% } else { %>
+      <div class="alert alert-success"><%= successMessage %></div>
+      <a href="/login" class="btn btn-success mt-4">Proceed to Log in</a>
+    <% } %>
+  </main>
+</body>
+</html>

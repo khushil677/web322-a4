@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui/dist/full.css" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col">
+  <%- include('partials/navbar', { page: '/userHistory' }) %>
+  <main class="flex-grow p-6 max-w-lg mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Login History for <%= session.user.userName %></h1>
+    <p class="mb-4">Email: <%= session.user.email %></p>
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th>Date/Time</th>
+          <th>Client</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% session.user.loginHistory.forEach(h => { %>
+          <tr>
+            <td><%= h.dateTime %></td>
+            <td><%= h.userAgent %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
